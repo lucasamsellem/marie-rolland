@@ -7,12 +7,12 @@ function HeaderLayout() {
 
   const dropdownLinks = [
     { to: 'photography/musicians', label: 'Musiciens' },
-    { to: 'photography/equestrian', label: 'Equestrian' },
-    { to: 'photography/universe', label: 'Universe' },
+    { to: 'photography/equestrian', label: 'Equestre' },
+    { to: 'photography/universe', label: 'Mon Univers' },
   ];
 
   return (
-    <header className='grid grid-cols-[15rem_1fr] px-5 my-5'>
+    <header className='grid grid-cols-[15rem_1fr] px-10 my-5'>
       <img src={logo} alt='Logo de la photographe Marie Rolland' />
 
       <nav className='text-black flex items-center justify-end'>

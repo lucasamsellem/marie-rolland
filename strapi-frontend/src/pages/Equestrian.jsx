@@ -9,31 +9,25 @@ export default function Equestrian() {
 
   return (
     <>
-      {data?.data[0]?.cta.map((paragraph, i) => (
-        <p key={i}>
-          {paragraph.children.map((child, j) => {
-            const parts = child.text.split('\n');
-
-            return parts.map((part, k) => {
-              const content = child.bold ? (
-                <strong key={`${i}-${j}-${k}`}>{part}</strong>
-              ) : (
-                <span key={`${i}-${j}-${k}`}>{part}</span>
-              );
-
-              // Ajoute <br /> après chaque ligne sauf la dernière
-              return k < parts.length - 1 ? (
-                <React.Fragment key={`${i}-${j}-${k}`}>
-                  {content}
-                  <br />
-                </React.Fragment>
-              ) : (
-                content
-              );
-            });
-          })}
+      <article>
+        <p>
+          <strong>Particulier</strong> : vous souhaitez révéler les liens spéciaux qui vous unissent
+          à votre cheval ? Vous souhaitez immortaliser ce qui le rend unique, le mettre en valeur
+          dans toute son authenticité et son naturel ? Je suis à votre disposition pour discuter de
+          vos désirs et vous proposer différentes formules adaptées !
         </p>
-      ))}
+        <p>
+          <strong>Professionnel</strong> : Eleveur, gérant de centre équestre, association, marque…
+          vous souhaitez de belles images pour mettre en avant le caractère de vos chevaux,
+          promouvoir votre structure, faire vivre votre activité au plus proche de l’image que vous
+          souhaitez transmettre, le tout avec une touche d’élégance et de dynamisme. Je vous propose
+          une prestation sur mesure, adaptée à vos besoins, en une session ou sur une base
+          régulière.
+        </p>
+        <p>
+          <strong>Contactez-moi</strong> : photographe@marie-rolland.com
+        </p>
+      </article>
 
       <PicturesLayout fetchedData={data} isLoading={loading} error={error} endpoint={endpoint} />
     </>

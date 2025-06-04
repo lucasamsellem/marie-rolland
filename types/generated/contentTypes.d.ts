@@ -414,14 +414,13 @@ export interface ApiEquestrianEquestrian extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::equestrian.equestrian'
     > &
       Schema.Attribute.Private;
-    pictures: Schema.Attribute.Media<'images' | 'files', true>;
+    picture: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -508,7 +507,8 @@ export interface ApiUniverseUniverse extends Struct.CollectionTypeSchema {
       'api::universe.universe'
     > &
       Schema.Attribute.Private;
-    picture: Schema.Attribute.Media<'images' | 'files'>;
+    picture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

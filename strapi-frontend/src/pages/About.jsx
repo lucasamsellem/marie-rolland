@@ -1,8 +1,9 @@
 import { useFetchStrapi } from '../hooks/useFetchStrapi';
 import ContactForm from '../components/ContactForm';
+import { API_URL } from '../api/api';
 
 export default function About() {
-  const { data, loading, error, LOCALHOST_URL } = useFetchStrapi('abouts?populate=*');
+  const { data, loading, error } = useFetchStrapi('abouts?populate=*');
 
   const bio = data?.data?.[0]?.bio;
   const picture = data?.data?.[0]?.picture;
@@ -12,7 +13,7 @@ export default function About() {
 
   return (
     <div className='grid grid-cols-2'>
-      <img src={LOCALHOST_URL + picture?.url} alt={picture?.alternativeText} />
+      <img src={API_URL + picture?.url} alt={picture?.alternativeText} className='picture' />
 
       <article>{bio?.map((text) => text?.children?.map((child) => <p>{child?.text}</p>))}</article>
 

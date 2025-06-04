@@ -11,6 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
     "name": {
       "type": "string",
       "required": true,
@@ -20,15 +29,6 @@
       "type": "string",
       "required": true,
       "unique": false
-    },
-    "picture": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
     },
     "description": {
       "type": "blocks"
