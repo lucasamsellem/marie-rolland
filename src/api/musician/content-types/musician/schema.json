@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "musicians",
+  "info": {
+    "singularName": "musician",
+    "pluralName": "musicians",
+    "displayName": "musician"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "instrument": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
