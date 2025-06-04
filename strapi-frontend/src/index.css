@@ -1,1 +1,27 @@
 @import 'tailwindcss';
+
+nav {
+  font-weight: 600;
+}
+
+.nav-link,
+.dropdown-link {
+  opacity: 0.5;
+}
+
+.nav-link {
+  font-size: 1.3rem;
+  transition: all 0.2s;
+}
+
+.nav-link.active {
+  opacity: 1;
+}
+
+.dropdown-link {
+  color: black;
+  transition: all 0.2s;
+}
+.dropdown-link:hover {
+  opacity: 1;
+}

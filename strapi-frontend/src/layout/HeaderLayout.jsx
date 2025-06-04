@@ -1,21 +1,68 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useDropdown from '../hooks/useDropdown';
+import logo from '../assets/logo-marie-rolland-2.svg';
 
 function HeaderLayout() {
+  const { Dropdown } = useDropdown();
+
   return (
-    <header>
-      <nav className='bg-gray-900 text-white flex items-center justify-between p-4 '>
-        <ul className='flex space-x-4'>
+    <header className='grid grid-cols-[15rem_1fr] px-5 my-5'>
+      <img src={logo} alt='Logo de la photographe Marie Rolland' />
+
+      <nav className='text-black flex items-center justify-end'>
+        <ul className='flex space-x-10'>
           <li>
-            <Link to='/'>Accueil</Link>
+            <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to='/'>
+              Accueil
+            </NavLink>
           </li>
+
           <li>
-            <Link to='/photography'>Photographie</Link>
+            <Dropdown>
+              {/* eslint-disable no-unused-vars */}
+              {({ toggle, AnimatedMenu }) => (
+                <>
+                  <button className='nav-link cursor-pointer' onClick={toggle}>
+                    Photographie
+                  </button>
+                  <AnimatedMenu>
+                    <li>
+                      <NavLink className='dropdown-link' to={'photography/musicians'}>
+                        Musiciens
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className='dropdown-link' to={'photography/equestrian'}>
+                        Équestre
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className='dropdown-link' to={'photography/universe'}>
+                        Mon univers
+                      </NavLink>
+                    </li>
+                  </AnimatedMenu>
+                </>
+              )}
+            </Dropdown>
           </li>
+
           <li>
-            <Link to='/management'>Management</Link>
+            <NavLink
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              to='/management'
+            >
+              Management
+            </NavLink>
           </li>
+
           <li>
-            <Link to='/about'>À propos</Link>
+            <NavLink
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              to='/about'
+            >
+              À propos
+            </NavLink>
           </li>
         </ul>
       </nav>

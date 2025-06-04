@@ -11,13 +11,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "picture": {
+    "pictures": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files"
       ]
+    },
+    "cta": {
+      "type": "blocks"
     }
   }
 }
