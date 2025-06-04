@@ -5,10 +5,10 @@ import React from 'react';
 
 export default function Equestrian() {
   const endpoint = getPathEndpoint();
-  const { data } = useFetchStrapi(`${endpoint}?populate=*`);
+  const { data, loading, error } = useFetchStrapi(`${endpoint}?populate=*`);
 
   return (
-    <div>
+    <>
       {data?.data[0]?.cta.map((paragraph, i) => (
         <p key={i}>
           {paragraph.children.map((child, j) => {
@@ -35,7 +35,7 @@ export default function Equestrian() {
         </p>
       ))}
 
-      <PicturesLayout data={data} endpoint={endpoint} />
-    </div>
+      <PicturesLayout fetchedData={data} isLoading={loading} error={error} endpoint={endpoint} />
+    </>
   );
 }

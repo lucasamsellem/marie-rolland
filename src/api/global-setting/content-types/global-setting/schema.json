@@ -10,11 +10,5 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {
-    "fontFamily": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    }
-  }
+  "attributes": {}
 }

@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 nav {
   font-weight: 600;
 }
@@ -12,6 +16,9 @@ nav {
 .nav-link {
   font-size: 1.3rem;
   transition: all 0.2s;
+}
+.nav-link:hover {
+  opacity: 0.7;
 }
 
 .nav-link.active {

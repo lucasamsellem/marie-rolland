@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-const LOCALHOST_URL = 'http://localhost:1337';
+import { API_URL } from '../api/api';
 
 export function useFetchStrapi(endpoint) {
   const [data, setData] = useState(null);
@@ -13,7 +12,7 @@ export function useFetchStrapi(endpoint) {
 
     const fetchData = async () => {
       try {
-        const response = await fetch(`${LOCALHOST_URL}/api/${endpoint}`);
+        const response = await fetch(`${API_URL}/api/${endpoint}`);
         if (!response.ok) {
           throw new Error(`Erreur ${response.status}: ${response.statusText}`);
         }
@@ -30,5 +29,5 @@ export function useFetchStrapi(endpoint) {
     fetchData();
   }, [endpoint]);
 
-  return { data, loading, error, LOCALHOST_URL };
+  return { data, loading, error };
 }

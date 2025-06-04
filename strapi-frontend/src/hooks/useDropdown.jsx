@@ -43,7 +43,7 @@ function useDropdown() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
                 style={{ display: isOpen ? 'flex' : 'none' }}
-                className='absolute flex flex-col gap-3 left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-10 origin-top p-3 items-center'
+                className='absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-10 origin-top p-3 items-center'
               >
                 {menuChildren}
               </motion.ul>

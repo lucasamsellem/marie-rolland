@@ -5,6 +5,12 @@ import logo from '../assets/logo-marie-rolland-2.svg';
 function HeaderLayout() {
   const { Dropdown } = useDropdown();
 
+  const dropdownLinks = [
+    { to: 'photography/musicians', label: 'Musiciens' },
+    { to: 'photography/equestrian', label: 'Equestrian' },
+    { to: 'photography/universe', label: 'Universe' },
+  ];
+
   return (
     <header className='grid grid-cols-[15rem_1fr] px-5 my-5'>
       <img src={logo} alt='Logo de la photographe Marie Rolland' />
@@ -26,20 +32,16 @@ function HeaderLayout() {
                     Photographie
                   </button>
                   <AnimatedMenu>
-                    <li>
-                      <NavLink className='dropdown-link' to={'photography/musicians'}>
-                        Musiciens
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink className='dropdown-link' to={'photography/equestrian'}>
-                        Équestre
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink className='dropdown-link' to={'photography/universe'}>
-                        Mon univers
-                      </NavLink>
+                    <li className='flex flex-col gap-3'>
+                      {dropdownLinks.map((link) => (
+                        <NavLink
+                          key={link.to}
+                          to={link.to}
+                          className={({ isActive }) => `dropdown-link ${isActive ? 'active' : ''}`}
+                        >
+                          {link.label}
+                        </NavLink>
+                      ))}
                     </li>
                   </AnimatedMenu>
                 </>
