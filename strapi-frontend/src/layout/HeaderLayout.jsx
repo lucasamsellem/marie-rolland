@@ -5,7 +5,7 @@ import instagram from '../assets/logo-instagram.svg';
 import { useFetchStrapi } from '../hooks/useFetchStrapi';
 
 function HeaderLayout() {
-  const { data } = useFetchStrapi();
+  const { data } = useFetchStrapi('instagram-link');
   const { Dropdown } = useDropdown();
 
   const dropdownLinks = [
@@ -15,7 +15,7 @@ function HeaderLayout() {
   ];
 
   return (
-    <header className='grid grid-cols-[15rem_1fr] px-10 my-5 mb-20'>
+    <header className='grid grid-cols-[15rem_1fr_auto] gap-x-10 px-10 my-5 mb-20 items-center'>
       <img src={logo} alt='Logo de la photographe Marie Rolland' />
 
       <nav className='text-black flex items-center justify-end'>
@@ -25,7 +25,6 @@ function HeaderLayout() {
               Accueil
             </NavLink>
           </li>
-
           <li>
             <Dropdown>
               {/* eslint-disable no-unused-vars */}
@@ -51,7 +50,6 @@ function HeaderLayout() {
               )}
             </Dropdown>
           </li>
-
           <li>
             <NavLink
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
@@ -60,7 +58,6 @@ function HeaderLayout() {
               Management
             </NavLink>
           </li>
-
           <li>
             <NavLink
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
@@ -70,11 +67,15 @@ function HeaderLayout() {
             </NavLink>
           </li>
         </ul>
-
-        <a target='_blank' href={data?.link}>
-          <img src={instagram} alt='Logo Instagram Marie Rolland' />
-        </a>
       </nav>
+
+      <a target='_blank' href={data?.data?.link}>
+        <img
+          src={instagram}
+          alt='Logo Instagram Marie Rolland'
+          className='w-10 hover:scale-110 duration-200 transition-all'
+        />
+      </a>
     </header>
   );
 }

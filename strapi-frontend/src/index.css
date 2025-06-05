@@ -3,7 +3,9 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
-
+a {
+  cursor: pointer;
+}
 nav {
   font-weight: 600;
 }
