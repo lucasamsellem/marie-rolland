@@ -3,11 +3,11 @@ import { API_URL } from '../api/api';
 
 export function useFetchStrapi(endpoint) {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     setError(null);
 
     const fetchData = async () => {
@@ -22,12 +22,12 @@ export function useFetchStrapi(endpoint) {
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [endpoint]);
 
-  return { data, loading, error };
+  return { data, isLoading, error };
 }

@@ -8,7 +8,7 @@ function HeaderLayout() {
   const dropdownLinks = [
     { to: 'photography/musicians', label: 'Musiciens' },
     { to: 'photography/equestrian', label: 'Equestre' },
-    { to: 'photography/universe', label: 'Mon Univers' },
+    { to: 'photography/my-universe', label: 'Mon Univers' },
   ];
 
   return (

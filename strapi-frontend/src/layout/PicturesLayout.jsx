@@ -1,7 +1,8 @@
 import { API_URL } from '../api/api';
+import Loader from '../components/Loader';
 
 function PicturesLayout({ fetchedData, isLoading, error }) {
-  if (isLoading) return <p>Chargement...</p>;
+  if (isLoading) return <Loader />;
   if (error) return <p>Erreur: {error}</p>;
 
   return (

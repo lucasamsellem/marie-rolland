@@ -373,7 +373,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutAbout extends Struct.CollectionTypeSchema {
+export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   collectionName: 'abouts';
   info: {
     displayName: 'About';
@@ -428,12 +428,12 @@ export interface ApiEquestrianEquestrian extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
-  collectionName: 'global_settings';
+export interface ApiHomeHome extends Struct.SingleTypeSchema {
+  collectionName: 'homes';
   info: {
-    displayName: 'Global Setting';
-    pluralName: 'global-settings';
-    singularName: 'global-setting';
+    displayName: 'home';
+    pluralName: 'homes';
+    singularName: 'home';
   };
   options: {
     draftAndPublish: true;
@@ -443,10 +443,7 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::global-setting.global-setting'
-    > &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -517,6 +514,37 @@ export interface ApiMusicianMusician extends Struct.CollectionTypeSchema {
     picture: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPhotographyPhotography extends Struct.CollectionTypeSchema {
+  collectionName: 'photographies';
+  info: {
+    displayName: 'photography';
+    pluralName: 'photographies';
+    singularName: 'photography';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::photography.photography'
+    > &
+      Schema.Attribute.Private;
+    pictures: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'category'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1063,9 +1091,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::equestrian.equestrian': ApiEquestrianEquestrian;
-      'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
+      'api::home.home': ApiHomeHome;
       'api::management.management': ApiManagementManagement;
       'api::musician.musician': ApiMusicianMusician;
+      'api::photography.photography': ApiPhotographyPhotography;
       'api::universe.universe': ApiUniverseUniverse;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

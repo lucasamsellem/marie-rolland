@@ -4,9 +4,9 @@ import { useFetchStrapi } from '../hooks/useFetchStrapi';
 
 export default function Musicians() {
   const endpoint = getPathEndpoint();
-  const { data, loading, error } = useFetchStrapi(`${endpoint}?populate=*`);
+  const { data, isLoading, error } = useFetchStrapi(`${endpoint}?populate=*`);
 
   return (
-    <PicturesLayout fetchedData={data} isLoading={loading} error={error} endpoint={endpoint} />
+    <PicturesLayout fetchedData={data} isLoading={isLoading} error={error} endpoint={endpoint} />
   );
 }

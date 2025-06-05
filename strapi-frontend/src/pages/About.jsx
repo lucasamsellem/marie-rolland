@@ -1,14 +1,15 @@
 import { useFetchStrapi } from '../hooks/useFetchStrapi';
 import ContactForm from '../components/ContactForm';
 import { API_URL } from '../api/api';
+import Loader from '../components/Loader';
 
 export default function About() {
-  const { data, loading, error } = useFetchStrapi('abouts?populate=*');
+  const { data, isLoading, error } = useFetchStrapi('about?populate=*');
 
-  const bio = data?.data?.[0]?.bio;
-  const picture = data?.data?.[0]?.picture;
+  const bio = data?.data?.bio;
+  const picture = data?.data?.picture;
 
-  if (loading) return <p>Chargement...</p>;
+  if (isLoading) return <Loader />;
   if (error) return <p>Erreur: {error}</p>;
 
   return (

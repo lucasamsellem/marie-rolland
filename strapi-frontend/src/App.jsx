@@ -22,7 +22,7 @@ export default function App() {
         <Route path='/photography' element={<Photography />}>
           <Route path='musicians' element={<Musicians />} />
           <Route path='equestrian' element={<Equestrian />} />
-          <Route path='universe' element={<Universe />} />
+          <Route path='my-universe' element={<Universe />} />
         </Route>
         <Route path='/management' element={<Management />} />
         <Route path='/management/:artistName' element={<ManagedArtist />} />
