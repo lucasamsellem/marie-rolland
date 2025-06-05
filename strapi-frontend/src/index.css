@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+:root {
+  --marie-gold: #e0c49a;
+}
+
+@theme {
+  --color-marie-gold: var(--marie-gold);
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }

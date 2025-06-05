@@ -1,8 +1,8 @@
 import { useFetchStrapi } from '../hooks/useFetchStrapi';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../api/api';
-import Loader from '../components/Loader';
 import { formatTitle } from '../utils/formatTitle';
+import WithLoaderAndError from '../components/WithLoaderAndError';
 
 function ManagedArtist() {
   const { artistName } = useParams();
@@ -15,11 +15,8 @@ function ManagedArtist() {
   const mainPicture = fetchedData?.pictures[0];
   const bio = fetchedData?.bio;
 
-  if (isLoading) return <Loader />;
-  if (error) return <p>Erreur: {error}</p>;
-
   return (
-    <div>
+    <WithLoaderAndError isLoading={isLoading} error={error}>
       <h1 className='font-bold text-4xl'>{formattedName}</h1>
       <div>
         <img src={`${API_URL}${mainPicture?.url}`} alt={mainPicture?.alternativeText} />
@@ -27,7 +24,7 @@ function ManagedArtist() {
       <article>
         {bio?.map((text) => text?.children?.map((child) => <p key={child?.id}>{child?.text}</p>))}
       </article>
-    </div>
+    </WithLoaderAndError>
   );
 }
 
