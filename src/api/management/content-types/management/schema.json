@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "managements",
+  "info": {
+    "singularName": "management",
+    "pluralName": "managements",
+    "displayName": "management"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "bio": {
+      "type": "blocks",
+      "required": true
+    },
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "links": {
+      "type": "string",
+      "unique": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "instrument": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

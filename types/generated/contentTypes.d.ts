@@ -455,6 +455,42 @@ export interface ApiGlobalSettingGlobalSetting extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiManagementManagement extends Struct.CollectionTypeSchema {
+  collectionName: 'managements';
+  info: {
+    displayName: 'management';
+    pluralName: 'managements';
+    singularName: 'management';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    instrument: Schema.Attribute.String & Schema.Attribute.Required;
+    links: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::management.management'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    pictures: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMusicianMusician extends Struct.CollectionTypeSchema {
   collectionName: 'musicians';
   info: {
@@ -1028,6 +1064,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::equestrian.equestrian': ApiEquestrianEquestrian;
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
+      'api::management.management': ApiManagementManagement;
       'api::musician.musician': ApiMusicianMusician;
       'api::universe.universe': ApiUniverseUniverse;
       'plugin::content-releases.release': PluginContentReleasesRelease;

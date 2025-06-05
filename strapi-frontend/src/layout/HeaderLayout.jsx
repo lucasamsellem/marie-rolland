@@ -12,7 +12,7 @@ function HeaderLayout() {
   ];
 
   return (
-    <header className='grid grid-cols-[15rem_1fr] px-10 my-5'>
+    <header className='grid grid-cols-[15rem_1fr] px-10 my-5 mb-20'>
       <img src={logo} alt='Logo de la photographe Marie Rolland' />
 
       <nav className='text-black flex items-center justify-end'>

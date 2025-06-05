@@ -9,23 +9,9 @@ import HeaderLayout from './layout/HeaderLayout';
 import Musicians from './pages/Musicians';
 import Equestrian from './pages/Equestrian';
 import Universe from './pages/Universe';
-
-// const LOCALHOST_URL = 'http://localhost:1337/api';
+import ManagedArtist from './pages/ManagedArtist';
 
 export default function App() {
-  // useEffect(() => {
-  //   const getGlobalSettings = async () => {
-  //     try {
-  //       const data = await fetch(`${LOCALHOST_URL}/global-setting`);
-  //       const settings = await data.json();
-  //       document.body.style.fontFamily = settings?.data.fontFamily;
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getGlobalSettings();
-  // }, []);
-
   return (
     <div>
       <HeaderLayout />
@@ -39,6 +25,7 @@ export default function App() {
           <Route path='universe' element={<Universe />} />
         </Route>
         <Route path='/management' element={<Management />} />
+        <Route path='/management/:artistName' element={<ManagedArtist />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
