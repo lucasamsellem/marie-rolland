@@ -420,8 +420,9 @@ export interface ApiEquestrianEquestrian extends Struct.CollectionTypeSchema {
       'api::equestrian.equestrian'
     > &
       Schema.Attribute.Private;
-    picture: Schema.Attribute.Media<'images' | 'files'>;
+    multiPictures: Schema.Attribute.Media<'images' | 'files', true>;
     publishedAt: Schema.Attribute.DateTime;
+    singlePicture: Schema.Attribute.Media<'images' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -444,6 +445,34 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInstagramLinkInstagramLink extends Struct.SingleTypeSchema {
+  collectionName: 'instagram_links';
+  info: {
+    displayName: 'instagram';
+    pluralName: 'instagram-links';
+    singularName: 'instagram-link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instagram-link.instagram-link'
+    > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -502,61 +531,27 @@ export interface ApiMusicianMusician extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks;
-    instrument: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::musician.musician'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    picture: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    multiPictures: Schema.Attribute.Media<'images' | 'files', true>;
     publishedAt: Schema.Attribute.DateTime;
+    singlePicture: Schema.Attribute.Media<'images' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiPhotographyPhotography extends Struct.CollectionTypeSchema {
-  collectionName: 'photographies';
+export interface ApiMyUniverseMyUniverse extends Struct.CollectionTypeSchema {
+  collectionName: 'my_universes';
   info: {
-    displayName: 'photography';
-    pluralName: 'photographies';
-    singularName: 'photography';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::photography.photography'
-    > &
-      Schema.Attribute.Private;
-    pictures: Schema.Attribute.Media<'images' | 'files', true> &
-      Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'category'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiUniverseUniverse extends Struct.CollectionTypeSchema {
-  collectionName: 'universes';
-  info: {
-    displayName: 'universe';
-    pluralName: 'universes';
-    singularName: 'universe';
+    displayName: 'my-universe';
+    pluralName: 'my-universes';
+    singularName: 'my-universe';
   };
   options: {
     draftAndPublish: true;
@@ -568,12 +563,12 @@ export interface ApiUniverseUniverse extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::universe.universe'
+      'api::my-universe.my-universe'
     > &
       Schema.Attribute.Private;
-    picture: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    multiPictures: Schema.Attribute.Media<'images' | 'files', true>;
     publishedAt: Schema.Attribute.DateTime;
+    singlePicture: Schema.Attribute.Media<'images' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1092,10 +1087,10 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::equestrian.equestrian': ApiEquestrianEquestrian;
       'api::home.home': ApiHomeHome;
+      'api::instagram-link.instagram-link': ApiInstagramLinkInstagramLink;
       'api::management.management': ApiManagementManagement;
       'api::musician.musician': ApiMusicianMusician;
-      'api::photography.photography': ApiPhotographyPhotography;
-      'api::universe.universe': ApiUniverseUniverse;
+      'api::my-universe.my-universe': ApiMyUniverseMyUniverse;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

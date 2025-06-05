@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "instagram_links",
+  "info": {
+    "singularName": "instagram-link",
+    "pluralName": "instagram-links",
+    "displayName": "instagram"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    }
+  }
+}

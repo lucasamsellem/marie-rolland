@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import useDropdown from '../hooks/useDropdown';
 import logo from '../assets/logo-marie-rolland-2.svg';
+import instagram from '../assets/logo-instagram.svg';
+import { useFetchStrapi } from '../hooks/useFetchStrapi';
 
 function HeaderLayout() {
+  const { data } = useFetchStrapi();
   const { Dropdown } = useDropdown();
 
   const dropdownLinks = [
@@ -67,6 +70,10 @@ function HeaderLayout() {
             </NavLink>
           </li>
         </ul>
+
+        <a target='_blank' href={data?.link}>
+          <img src={instagram} alt='Logo Instagram Marie Rolland' />
+        </a>
       </nav>
     </header>
   );

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "musicians",
+  "collectionName": "my_universes",
   "info": {
-    "singularName": "musician",
-    "pluralName": "musicians",
-    "displayName": "musician"
+    "singularName": "my-universe",
+    "pluralName": "my-universes",
+    "displayName": "my-universe"
   },
   "options": {
     "draftAndPublish": true

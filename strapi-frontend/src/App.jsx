@@ -6,10 +6,8 @@ import Photography from './pages/Photography';
 import Management from './pages/Management';
 import NotFound from './pages/NotFound';
 import HeaderLayout from './layout/HeaderLayout';
-import Musicians from './pages/Musicians';
-import Equestrian from './pages/Equestrian';
-import Universe from './pages/Universe';
 import ManagedArtist from './pages/ManagedArtist';
+import PhotographyCategoryPage from './pages/PhotographyCategoryPage';
 
 export default function App() {
   return (
@@ -19,11 +17,11 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/photography' element={<Photography />}>
-          <Route path='musicians' element={<Musicians />} />
-          <Route path='equestrian' element={<Equestrian />} />
-          <Route path='my-universe' element={<Universe />} />
-        </Route>
+        <Route path='/photography' element={<Photography />} />
+        {/* <Route path='/photography/:categorySlug' element={<PhotographyCategoryPage />} /> */}
+        <Route path='/photography/musicians' element={<PhotographyCategoryPage />} />
+        <Route path='/photography/equestrian' element={<PhotographyCategoryPage />} />
+        <Route path='/photography/my-universe' element={<PhotographyCategoryPage />} />
         <Route path='/management' element={<Management />} />
         <Route path='/management/:artistName' element={<ManagedArtist />} />
         <Route path='*' element={<NotFound />} />

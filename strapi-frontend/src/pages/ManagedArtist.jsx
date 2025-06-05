@@ -1,29 +1,31 @@
 import { useFetchStrapi } from '../hooks/useFetchStrapi';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { API_URL } from '../api/api';
 import Loader from '../components/Loader';
+import { formatTitle } from '../utils/formatTitle';
 
 function ManagedArtist() {
-  const { pathname } = useLocation();
-  const endpoint = pathname.split('/').at(-1);
-  const { data, isLoading, error } = useFetchStrapi(`managements/?populate=*`);
+  const { artistName } = useParams();
+  const { data, isLoading, error } = useFetchStrapi(
+    `managements?filters[slug][$eq]=${artistName}&populate=*`
+  );
 
-  const foundArtist = data?.data?.find((artist) => artist?.slug === endpoint);
-  const picture = foundArtist?.pictures[0];
+  const fetchedData = data?.data[0];
+  const formattedName = formatTitle(artistName);
+  const mainPicture = fetchedData?.pictures[0];
+  const bio = fetchedData?.bio;
 
   if (isLoading) return <Loader />;
   if (error) return <p>Erreur: {error}</p>;
 
   return (
     <div>
-      <h1 className='font-bold text-4xl'>{foundArtist?.name}</h1>
+      <h1 className='font-bold text-4xl'>{formattedName}</h1>
       <div>
-        <img src={`${API_URL}${picture?.url}`} alt={picture?.alternativeText} />
+        <img src={`${API_URL}${mainPicture?.url}`} alt={mainPicture?.alternativeText} />
       </div>
       <article>
-        {foundArtist?.bio?.map((text) =>
-          text?.children?.map((child) => <p key={child?.id}>{child?.text}</p>)
-        )}
+        {bio?.map((text) => text?.children?.map((child) => <p key={child?.id}>{child?.text}</p>))}
       </article>
     </div>
   );

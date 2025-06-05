@@ -11,10 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "picture": {
+    "singlePicture": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "multiPictures": {
+      "type": "media",
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files"
