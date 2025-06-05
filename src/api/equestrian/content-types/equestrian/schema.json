@@ -26,6 +26,10 @@
         "images",
         "files"
       ]
+    },
+    "order": {
+      "type": "integer",
+      "required": true
     }
   }
 }

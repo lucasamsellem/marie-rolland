@@ -14,23 +14,20 @@ function PhotographyCategoryPage() {
   if (error) return <p>Erreur: {error}</p>;
 
   return (
-    <ul className='flex flex-col gap-2 px-2'>
+    <ul className='flex flex-col gap-1 px-2'>
       {data?.data.map((picture) => {
         const multiPictures = picture?.multiPictures;
         const singlePicture = picture?.singlePicture;
 
         if (multiPictures !== null && multiPictures?.length > 0) {
           return (
-            <ul
-              style={{ gridTemplateColumns: `repeat(${multiPictures?.length}, 1fr)` }}
-              className='grid gap-2 w-full'
-            >
+            <ul className='flex gap-1'>
               {multiPictures.map((pic) => (
                 <li key={pic?.id} className='overflow-hidden rounded'>
                   <img
                     src={`${API_URL}${pic?.url}`}
                     alt={pic?.alternativeText}
-                    className='w-full h-full object-cover'
+                    className='w-auto h-full object-cover'
                   />
                 </li>
               ))}

@@ -421,6 +421,7 @@ export interface ApiEquestrianEquestrian extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     multiPictures: Schema.Attribute.Media<'images' | 'files', true>;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     singlePicture: Schema.Attribute.Media<'images' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -538,6 +539,7 @@ export interface ApiMusicianMusician extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     multiPictures: Schema.Attribute.Media<'images' | 'files', true>;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     singlePicture: Schema.Attribute.Media<'images' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -567,6 +569,7 @@ export interface ApiMyUniverseMyUniverse extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     multiPictures: Schema.Attribute.Media<'images' | 'files', true>;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     singlePicture: Schema.Attribute.Media<'images' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
