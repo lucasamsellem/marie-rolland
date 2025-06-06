@@ -18,14 +18,14 @@ function Management() {
             <NavLink
               to={`/management/${artist?.slug}`}
               key={artist?.id}
-              className='flex flex-col gap-5 max-w-[35rem] max-h-[30rem] overflow-hidden shadow relative rounded-lg'
+              className='flex flex-col gap-5 max-w-[35rem] max-h-[30rem] overflow-hidden relative rounded-xl'
             >
               <ImageLoaded
                 src={`${API_URL}${artistPicture?.url}`}
                 alt={artistPicture?.alternativeText}
-                className='rounded-lg w-full object-cover h-full hover:scale-110'
+                className='rounded-xl w-full object-cover h-full shadow hover:!scale-105'
               />
-              <div className='flex flex-col gap-1 absolute bg-white bottom-5 right-5 p-3 rounded-lg'>
+              <div className='flex flex-col gap-1 absolute bg-white bottom-5 right-5 p-3 rounded-xl'>
                 <h2 className='font-bold text-xl'>{artist?.name}</h2>
                 <h4 className='font-medium rounded-md text-md'>
                   {formatTitle(artist?.instrument)}

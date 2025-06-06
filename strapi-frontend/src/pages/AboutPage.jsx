@@ -26,7 +26,7 @@ export default function About() {
 
         <div className='flex flex-col gap-5'>
           <ContactForm />
-          <NavLink to={'/legal-terms'} className='font-semibold underline text-center'>
+          <NavLink to={'/legal-terms'} className='font-semibold underline text-center m-10'>
             Mentions légales
           </NavLink>
         </div>

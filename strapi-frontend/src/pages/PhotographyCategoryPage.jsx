@@ -49,7 +49,7 @@ function PhotographyCategoryPage() {
                     <LazyLoadImage
                       src={`${API_URL}${pic?.url}`}
                       alt={pic?.alternativeText}
-                      className='w-auto h-full object-cover'
+                      className='picture h-full object-cover'
                     />
                   </li>
                 ))}

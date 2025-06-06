@@ -4,15 +4,16 @@ function LegalTermsPage() {
       <h1 className='font-bold text-4xl text-center mb-10'>Mentions légales</h1>
       <p>
         <strong>Éditeur du site</strong>
-        <br /> Nom du photographe : Marie ROLLAND Adresse : Hébergé par OVH, identité communiquée
-        sur demande aux autorités compétentes Email : photographe@marie-rolland.com
+        <br /> Nom du photographe : Marie ROLLAND <br />
+        Adresse : Hébergé par OVH, identité communiquée sur demande aux autorités compétentes Email
+        : photographe@marie-rolland.com
       </p>
 
       <p>
         <strong>Hébergement</strong>
-        <br /> Nom de l’hébergeur : OVH Adresse de l’hébergeur : 2 rue Kellermann, 59100 Roubaix,
-        France Téléphone de l’hébergeur : 1007 (service client OVH) Site web :
-        https://www.ovhcloud.com
+        <br /> Nom de l’hébergeur : OVH <br />
+        Adresse de l’hébergeur : 2 rue Kellermann, 59100 Roubaix, France <br />
+        Téléphone de l’hébergeur : 1007 (service client OVH) Site web : https://www.ovhcloud.com
       </p>
 
       <p>
@@ -28,8 +29,9 @@ function LegalTermsPage() {
         pour répondre aux demandes des visiteurs et ne sont ni vendues, ni partagées avec des tiers.
         Elles sont conservées pour la durée nécessaire au traitement de la demande. Conformément au
         Règlement Général sur la Protection des Données (RGPD), vous disposez d’un droit d’accès, de
-        rectification et de suppression de vos données personnelles. Pour exercer ces droits,
-        contactez-nous à l’adresse suivante : photographe@marie-rolland.com.
+        rectification et de suppression de vos données personnelles. <br />
+        Pour exercer ces droits, contactez-nous à l’adresse suivante :
+        photographe@marie-rolland.com.
       </p>
 
       <p>
