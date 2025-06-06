@@ -578,6 +578,39 @@ export interface ApiMyUniverseMyUniverse extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPhotographyPhotography extends Struct.SingleTypeSchema {
+  collectionName: 'photographies';
+  info: {
+    displayName: 'photography';
+    pluralName: 'photographies';
+    singularName: 'photography';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bgPic: Schema.Attribute.Media<'images' | 'files'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    equestrianBgPic: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::photography.photography'
+    > &
+      Schema.Attribute.Private;
+    musiciansBgPic: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    myUniverseBgPic: Schema.Attribute.Media<'images' | 'files'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1094,6 +1127,7 @@ declare module '@strapi/strapi' {
       'api::management.management': ApiManagementManagement;
       'api::musician.musician': ApiMusicianMusician;
       'api::my-universe.my-universe': ApiMyUniverseMyUniverse;
+      'api::photography.photography': ApiPhotographyPhotography;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

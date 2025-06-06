@@ -1,4 +1,3 @@
-// ImageLoaded.js
 import { useState, forwardRef } from 'react';
 
 const ImageLoaded = forwardRef(({ src, alt, className, isLazy, isVisible = true }, ref) => {

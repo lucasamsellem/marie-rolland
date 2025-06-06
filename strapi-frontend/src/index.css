@@ -78,3 +78,9 @@ nav {
     border-color: black; /* blue-500 */
   }
 }
+
+body.bg-musicians,
+body.bg-equestrian,
+body.bg-my-universe {
+  transition: all 0.2s;
+}
