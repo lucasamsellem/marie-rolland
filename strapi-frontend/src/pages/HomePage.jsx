@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>Bienvenue sur Home Page</div>;
+  return <div className='side-padding'>Bienvenue sur Home Page</div>;
 }

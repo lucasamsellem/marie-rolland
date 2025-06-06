@@ -59,30 +59,9 @@ export default function App() {
               </PageTransitionWrapper>
             }
           />
-          <Route
-            path='/photography/musicians'
-            element={
-              <PageTransitionWrapper>
-                <PhotographyCategoryPage />
-              </PageTransitionWrapper>
-            }
-          />
-          <Route
-            path='/photography/equestrian'
-            element={
-              <PageTransitionWrapper>
-                <PhotographyCategoryPage />
-              </PageTransitionWrapper>
-            }
-          />
-          <Route
-            path='/photography/my-universe'
-            element={
-              <PageTransitionWrapper>
-                <PhotographyCategoryPage />
-              </PageTransitionWrapper>
-            }
-          />
+          <Route path='/photography/musicians' element={<PhotographyCategoryPage />} />
+          <Route path='/photography/equestrian' element={<PhotographyCategoryPage />} />
+          <Route path='/photography/my-universe' element={<PhotographyCategoryPage />} />
           <Route
             path='/management'
             element={

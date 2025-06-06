@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { API_URL } from '../api/api';
 import { formatTitle } from '../utils/formatTitle';
 import WithLoaderAndError from '../components/WithLoaderAndError';
+import ImageLoaded from '../components/ImageLoaded';
 
 function Management() {
   const { data, isLoading, error } = useFetchStrapi(`managements/?populate=*`);
@@ -19,10 +20,10 @@ function Management() {
               key={artist?.id}
               className='flex flex-col gap-5 max-w-[35rem] max-h-[30rem] overflow-hidden shadow relative rounded-lg'
             >
-              <img
+              <ImageLoaded
                 src={`${API_URL}${artistPicture?.url}`}
                 alt={artistPicture?.alternativeText}
-                className='rounded-lg w-full object-cover h-full hover:scale-105 transition duration-300 ease-in-out'
+                className='rounded-lg w-full object-cover h-full hover:scale-110'
               />
               <div className='flex flex-col gap-1 absolute bg-white bottom-5 right-5 p-3 rounded-lg'>
                 <h2 className='font-bold text-xl'>{artist?.name}</h2>

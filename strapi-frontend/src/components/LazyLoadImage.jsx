@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 function LazyLoadImage({ src, alt, className }) {
+  const [isImgLoaded, setIsImgLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const imgRef = useRef(null);
 
@@ -32,7 +33,8 @@ function LazyLoadImage({ src, alt, className }) {
       initial={{ opacity: 0, y: 20 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      style={{ display: 'block' }}
+      style={{ opacity: isImgLoaded ? 1 : 0, transition: 'opacity 0.2s ease-in' }}
+      onLoad={() => setIsImgLoaded(true)}
     />
   );
 }
