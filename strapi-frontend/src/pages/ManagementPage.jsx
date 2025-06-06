@@ -17,15 +17,19 @@ function Management() {
             <NavLink
               to={`/management/${artist?.slug}`}
               key={artist?.id}
-              className='flex flex-col gap-5 bg-gray-100 p-5 rounded-xl text-center max-w-[20rem]'
+              className='flex flex-col gap-5 max-w-[35rem] max-h-[30rem] overflow-hidden shadow relative rounded-lg'
             >
-              <h2 className='font-bold text-2xl '>{artist?.name}</h2>
               <img
                 src={`${API_URL}${artistPicture?.url}`}
                 alt={artistPicture?.alternativeText}
-                className='rounded-xl w-full'
+                className='rounded-lg w-full object-cover h-full hover:scale-105 transition duration-300 ease-in-out'
               />
-              <h4 className='font-semibold text-xl'>{formatTitle(artist?.instrument)}</h4>
+              <div className='flex flex-col gap-1 absolute bg-white bottom-5 right-5 p-3 rounded-lg'>
+                <h2 className='font-bold text-xl'>{artist?.name}</h2>
+                <h4 className='font-medium rounded-md text-md'>
+                  {formatTitle(artist?.instrument)}
+                </h4>
+              </div>
             </NavLink>
           );
         })}

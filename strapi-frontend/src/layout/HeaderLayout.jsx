@@ -10,12 +10,12 @@ function HeaderLayout() {
 
   const dropdownLinks = [
     { to: 'photography/musicians', label: 'Musiciens' },
-    { to: 'photography/equestrian', label: 'Equestre' },
+    { to: 'photography/equestrian', label: 'Équestre' },
     { to: 'photography/my-universe', label: 'Mon Univers' },
   ];
 
   return (
-    <header className='grid grid-cols-[15rem_1fr_auto] gap-x-10 px-10 my-5 mb-20 items-center'>
+    <header className='grid grid-cols-[15rem_1fr_auto] gap-x-10 px-10 my-5 mb-15 items-center'>
       <img src={logo} alt='Logo de la photographe Marie Rolland' />
 
       <nav className='text-black flex items-center justify-end'>
@@ -39,7 +39,9 @@ function HeaderLayout() {
                         <NavLink
                           key={link.to}
                           to={link.to}
-                          className={({ isActive }) => `dropdown-link ${isActive ? 'active' : ''}`}
+                          className={({ isActive }) =>
+                            `opacity-50 hover:opacity-70 text-black transition-all duration-200 ${isActive ? 'opacity-100' : ''}`
+                          }
                         >
                           {link.label}
                         </NavLink>

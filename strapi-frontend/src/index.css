@@ -11,6 +11,11 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+.side-padding {
+  padding: 0 5rem;
+}
+
 a {
   cursor: pointer;
 }
@@ -18,8 +23,7 @@ nav {
   font-weight: 600;
 }
 
-.nav-link,
-.dropdown-link {
+.nav-link {
   opacity: 0.5;
 }
 
@@ -35,13 +39,6 @@ nav {
   opacity: 1;
 }
 
-.dropdown-link {
-  color: black;
-  transition: all 0.2s;
-}
-.dropdown-link:hover {
-  opacity: 1;
-}
 .picture {
   border-radius: 4px;
   width: 100%;

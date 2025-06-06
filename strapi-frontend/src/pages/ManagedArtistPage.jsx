@@ -1,5 +1,5 @@
 import { useFetchStrapi } from '../hooks/useFetchStrapi';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { API_URL } from '../api/api';
 import { formatTitle } from '../utils/formatTitle';
 import WithLoaderAndError from '../components/WithLoaderAndError';
@@ -17,13 +17,28 @@ function ManagedArtist() {
 
   return (
     <WithLoaderAndError isLoading={isLoading} error={error}>
-      <h1 className='font-bold text-4xl'>{formattedName}</h1>
-      <div>
-        <img src={`${API_URL}${mainPicture?.url}`} alt={mainPicture?.alternativeText} />
+      <div className='px-10'>
+        <NavLink to='/management' className='nav-link mb-5'>
+          &lt; Retour
+        </NavLink>
+        <h1 className='font-bold text-4xl text-center mb-10'>{formattedName}</h1>
+        <div className='grid grid-cols-2 gap-5'>
+          <img
+            src={`${API_URL}${mainPicture?.url}`}
+            alt={mainPicture?.alternativeText}
+            className='picture'
+          />
+          <article>
+            {bio?.map((text) =>
+              text?.children?.map((child) => (
+                <p key={child?.id} className='mb-2'>
+                  {child?.text}
+                </p>
+              ))
+            )}
+          </article>
+        </div>
       </div>
-      <article>
-        {bio?.map((text) => text?.children?.map((child) => <p key={child?.id}>{child?.text}</p>))}
-      </article>
     </WithLoaderAndError>
   );
 }
