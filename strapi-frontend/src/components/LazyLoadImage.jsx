@@ -1,7 +1,8 @@
+// LazyLoadImage.js
 import { useState, useEffect, useRef } from 'react';
+import ImageLoaded from './ImageLoaded';
 
 function LazyLoadImage({ src, alt, className }) {
-  const [isImgLoaded, setIsImgLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const imgRef = useRef(null);
 
@@ -13,25 +14,20 @@ function LazyLoadImage({ src, alt, className }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     if (imgRef.current) observer.observe(imgRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <img
+    <ImageLoaded
       ref={imgRef}
       src={src}
       alt={alt}
+      isLazy={true}
       className={className}
-      loading='lazy'
-      style={{
-        opacity: isImgLoaded && isVisible ? 1 : 0,
-        scale: isImgLoaded && isVisible ? 1 : 0.95,
-        transition: 'all 0.3s ease-in-out',
-      }}
-      onLoad={() => setIsImgLoaded(true)}
+      isVisible={isVisible}
     />
   );
 }

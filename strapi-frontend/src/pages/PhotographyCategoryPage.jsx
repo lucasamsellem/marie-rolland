@@ -44,11 +44,11 @@ function PhotographyCategoryPage() {
           if (multiPictures !== null && multiPictures?.length > 0) {
             return (
               <ul className='flex gap-1'>
-                {multiPictures.map((pic) => (
-                  <li key={pic?.id} className='overflow-hidden rounded'>
+                {multiPictures.map((multiPic) => (
+                  <li key={multiPic?.id}>
                     <LazyLoadImage
-                      src={`${API_URL}${pic?.url}`}
-                      alt={pic?.alternativeText}
+                      src={`${API_URL}${multiPic?.url}`}
+                      alt={multiPic?.alternativeText}
                       className='picture h-full object-cover'
                     />
                   </li>
