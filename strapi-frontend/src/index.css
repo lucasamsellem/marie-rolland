@@ -10,6 +10,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  transition:
+    background-image 0.2s ease,
+    background-color 0.2s ease;
 }
 
 html {
@@ -75,7 +78,7 @@ nav {
 
   input:focus,
   textarea:focus {
-    border-color: black; /* blue-500 */
+    border-color: black;
   }
 }
 

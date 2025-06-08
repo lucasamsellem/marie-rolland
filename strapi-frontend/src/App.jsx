@@ -51,14 +51,7 @@ export default function App() {
               </PageTransitionWrapper>
             }
           />
-          <Route
-            path='/photography'
-            element={
-              <PageTransitionWrapper>
-                <PhotographyPage />
-              </PageTransitionWrapper>
-            }
-          />
+          <Route path='/photography' element={<PhotographyPage />} />
           <Route path='/photography/musicians' element={<PhotographyCategoryPage />} />
           <Route path='/photography/equestrian' element={<PhotographyCategoryPage />} />
           <Route path='/photography/my-universe' element={<PhotographyCategoryPage />} />
